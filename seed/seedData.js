@@ -97,15 +97,15 @@ const seed = async () => {
       text: "Thanks for watching!",
     });
 
-    console.log("✅ Seed completed successfully.");
+    console.log(" Seed completed successfully.");
   } catch (err) {
-    console.error("❌ Seed error:", err);
+    console.error(" Seed error:", err);
   } finally {
-    // ⚠️ Close only if this script is run directly (not when imported by server.js)
+    //  Close only if this script is run directly (not when imported by server.js)
     const isMainModule = import.meta.url === url.pathToFileURL(process.argv[1]).href;
     if (isMainModule) {
       await mongoose.connection.close();
-      console.log("🔒 Connection closed after manual seed.");
+      console.log(" Connection closed after manual seed.");
     }
   }
 };

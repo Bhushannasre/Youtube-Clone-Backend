@@ -7,7 +7,7 @@ import { fileURLToPath } from "url";
 
 const router = express.Router();
 
-// 🗂 Multer setup for file uploads
+//  Multer setup for file uploads
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -27,7 +27,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// ✅ Accept both video and thumbnail fields
+//  Accept both video and thumbnail fields
 router.post(
   "/upload",
   protect,
@@ -38,10 +38,10 @@ router.post(
   uploadVideo
 );
 
-// 📺 Get all videos
+//  Get all videos
 router.get("/", getAllVideos);
 
-// 🎥 Get single video by ID
+//  Get single video by ID
 router.get("/:id", getVideoById);
 
 export default router;

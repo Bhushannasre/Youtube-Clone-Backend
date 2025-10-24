@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 🎬 Upload a new video
+//  Upload a new video
 export const uploadVideo = async (req, res) => {
   try {
     const { title, description } = req.body;
@@ -29,7 +29,7 @@ export const uploadVideo = async (req, res) => {
     await newVideo.save();
 
     res.status(201).json({
-      message: "✅ Video uploaded successfully",
+      message: " Video uploaded successfully",
       video: newVideo,
     });
   } catch (error) {
@@ -41,7 +41,7 @@ export const uploadVideo = async (req, res) => {
   }
 };
 
-// 📺 Get all videos
+//  Get all videos
 export const getAllVideos = async (req, res) => {
   try {
     const videos = await Video.find().populate("user", "name email");
@@ -52,7 +52,7 @@ export const getAllVideos = async (req, res) => {
   }
 };
 
-// 🎥 Get single video by ID
+//  Get single video by ID
 export const getVideoById = async (req, res) => {
   try {
     const video = await Video.findById(req.params.id).populate("user", "name email");

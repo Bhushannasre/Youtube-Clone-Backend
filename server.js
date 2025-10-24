@@ -19,7 +19,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
-// ✅ Enable static access for uploaded videos/thumbnails
+//  Enable static access for uploaded videos/thumbnails
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
@@ -27,11 +27,11 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 const startServer = async () => {
   try {
     await connectDB();
-    console.log("✅ MongoDB connection successful");
+    console.log(" MongoDB connection successful");
 
     await seed();
 
-    // ✅ Register all routes
+    //  Register all routes
     app.use("/api/auth", authRoutes);
     app.use("/api/channels", channelRoutes);
     app.use("/api/videos", videoRoutes);
@@ -43,9 +43,9 @@ const startServer = async () => {
     app.get("/", (req, res) => res.send("YouTube Clone Backend is running ✅"));
 
     const PORT = process.env.PORT || 5000;
-    app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+    app.listen(PORT, () => console.log(` Server running on port ${PORT}`));
   } catch (error) {
-    console.error("❌ Server startup failed:", error.message);
+    console.error(" Server startup failed:", error.message);
   }
 };
 
